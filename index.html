@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body ng-controller="DemoController" style="padding-top: 70px;">
+
+	<div class="container">
+
+		<div class="well"><input type="text" class="form-control" ng-model="termoBusca" placeholder="Filtar a lista"></div>
+		<h4>Total de pessoas: {{lista.length}}</h4>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th><a href="#" ng-click="classificar('nome')">Nome</a></th>
+					<th><a href="#" ng-click="classificar('cidade')">Cidade</a></th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="pessoa in lista | filter:termoBusca">
+					<!-- <td>{{pessoa.nome}}</td> -->
+					<td><vd-nome pessoa="pessoa"></vd-nome></td>
+					<td>{{pessoa.cidade}}</td>
+					<td>x</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="form-group">
+		  <label for="nome">Nome</label>
+		  <input class="form-control" type="text" name="nome" ng-model="nome" id="nome">
+		</div>
+		<div class="form-group">
+		  <label for="cidade">Cidade</label>
+		  <input class="form-control" type="text" name="cidade" ng-model="cidade" id="cidade">
+		</div>
+		<button class="btn btn-default" ng-click="salvar()">Salvar</button>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+	<script src="app.js"></script>
+	<script src="directives.js"></script>
+</body>
+</html>
